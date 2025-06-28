@@ -4,21 +4,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Catálogo - BheringBot</title>
+    <title>Login Admin</title>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body class="bg-gray-100 text-gray-800">
-    <header class="bg-white shadow p-4 flex justify-between items-center">
-      <h1 class="text-2xl font-bold">Loja Bhering</h1>
-      <a href="/admin" class="text-blue-600 hover:underline">Admin</a>
-    </header>
-    <main class="p-6">
-      <h2 class="text-xl font-semibold mb-4">Ofertas</h2>
-      <div id="catalogo" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        <!-- Produtos aqui -->
-      </div>
-    </main>
-    <script src="firebase-config.js" type="module"></script>
-    <script src="main.js" type="module"></script>
+  <body class="flex items-center justify-center h-screen bg-gray-100">
+    <form id="loginForm" class="bg-white p-8 rounded shadow-md w-full max-w-sm">
+      <h2 class="text-xl font-bold mb-4">Faça o seu login</h2>
+      <input type="email" id="email" placeholder="Seu e-mail" required class="w-full p-2 mb-4 border rounded" />
+      <input type="password" id="senha" placeholder="Sua senha" required class="w-full p-2 mb-4 border rounded" />
+      <button type="submit" class="w-full bg-blue-600 text-white p-2 rounded">Entrar</button>
+    </form>
+    <script src="login.js" type="module"></script>
   </body>
 </html>
