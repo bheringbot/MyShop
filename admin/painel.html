@@ -3,16 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <title>Painel Admin</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script type="module" src="../scripts/admin.js"></script>
+  
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+<script src="../scripts/firebase.js"></script>
+
+<script>
+  auth.onAuthStateChanged((user) => {
+    if (!user) {
+      window.location.href = "index.html"; // volta pro login
+    }
+  });
+</script>
+
 </head>
-<body class="p-6 bg-gray-50">
-  <form id="formProduto" class="space-y-4">
-    <input type="text" id="nome" placeholder="Nome" class="w-full p-2 border rounded" />
-    <input type="text" id="preco" placeholder="Preço" class="w-full p-2 border rounded" />
-    <input type="text" id="link" placeholder="Link" class="w-full p-2 border rounded" />
-    <input type="text" id="imagem" placeholder="URL da Imagem" class="w-full p-2 border rounded" />
-    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Salvar</button>
+<body>
+
+  <h1>Painel do Admin</h1>
+
+  <form id="formProduto">
+    <input name="nome" placeholder="Nome do produto" required>
+    <input name="preco" placeholder="Preço" required>
+    <input name="imagem" placeholder="URL da imagem" required>
+    <input name="link" placeholder="Link do produto" required>
+    <button type="submit">Cadastrar</button>
   </form>
+
+  <script src="../scripts/firebase.js"></script>
+  <script src="../scripts/admin.js"></script>
+
 </body>
 </html>
