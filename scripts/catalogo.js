@@ -1,20 +1,19 @@
-const container = document.getElementById('produtos');
+// scripts/catalogo.js
+const container = document.getElementById("produtos");
 
-async function carregarProdutos() {
-  const snap = await getDocs(collection(db, "produtos"));
-  container.innerHTML = "";
-
-  snap.forEach(doc => {
-    const p = doc.data();
-    container.innerHTML += `
-      <div class="bg-white rounded-xl p-4 shadow">
-        <img src="${p.imagem}" class="w-full h-40 object-cover rounded-lg">
-        <h2 class="text-lg font-bold mt-2">${p.nome}</h2>
-        <p class="text-gray-600">${p.preco}</p>
-        <a href="${p.link}" target="_blank" class="text-blue-500 underline">Comprar</a>
-      </div>
-    `;
-  });
-}
-
-carregarProdutos();
+db.collection("produtos").get()
+  .then((snapshot) => {
+    container.innerHTML = "";
+    snapshot.forEach((doc) => {
+      const p = doc.data();
+      container.innerHTML += `
+        <div class="card">
+          <img src="${p.imagem}" alt="${p.nome}" style="width:100%">
+          <h2>${p.nome}</h2>
+          <p>R$ ${p.preco}</p>
+          <a href="${p.link}" target="_blank">Comprar</a>
+        </div>
+      `;
+    });
+  })
+  .catch((erro) => console.error("Erro ao carregar produtos:", erro));
