@@ -1,6 +1,3 @@
-import { db } from './firebase.js';
-import { collection, getDocs } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
-
 const container = document.getElementById('produtos');
 
 async function carregarProdutos() {
