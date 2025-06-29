@@ -10,6 +10,7 @@ const firebaseConfig = {
 
 // inicializa o app
 firebase.initializeApp(firebaseConfig);
+console.log("Firestore OK?", db ? "Sim" : "Não");
 
 // exporta
 const auth = firebase.auth();
