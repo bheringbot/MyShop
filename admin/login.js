@@ -4,12 +4,11 @@ document.getElementById("loginForm").addEventListener("submit", (e) => {
   const email = document.getElementById("usuario").value;
   const senha = document.getElementById("senha").value;
 
-  firebase.auth().signInWithEmailAndPassword(email, senha)
-  .then((userCredential) => {
-    // Login bem-sucedido
+  // admin/login.js
+firebase.auth().signInWithEmailAndPassword(email, senha)
+  .then(() => {
     localStorage.setItem("autenticado", "sim");
-    window.location.href = "admin/painel.html"; // Redireciona
+    // Você está em admin/, portanto:
+    window.location.href = "painel.html";
   })
-  .catch((error) => {
-    alert("Erro: " + error.message);
-  });
+  .catch((err) => alert("Erro: " + err.message));
