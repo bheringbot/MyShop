@@ -1,16 +1,15 @@
-const form = document.getElementById("formProduto");
-
-form.addEventListener("submit", async (e) => {
+document.getElementById("formProduto").addEventListener("submit", async (e) => {
   e.preventDefault();
 
+  const form = e.target;
   const produto = {
     nome: form.nome.value,
     preco: form.preco.value,
-    link: form.link.value,
     imagem: form.imagem.value,
+    link: form.link.value,
   };
 
-  await addDoc(collection(db, "produtos"), produto);
-  alert("Produto cadastrado com sucesso!");
+  await db.collection("produtos").add(produto);
+  alert("Produto adicionado com sucesso!");
   form.reset();
 });
